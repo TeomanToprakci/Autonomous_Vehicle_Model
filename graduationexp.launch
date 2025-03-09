@@ -1,0 +1,37 @@
+<launch>
+  <arg name="model" default="$(env TURTLEBOT3_MODEL)" doc="model type [burger, waffle, waffle_pi]"/>
+  <arg name="first_tb3"  default="tb3_0"/>
+
+  <arg name="first_tb3_x_pos" default="8.0"/>
+  <arg name="first_tb3_y_pos" default="0.0"/>
+  <arg name="first_tb3_z_pos" default=" 0.0"/>
+  <arg name="first_tb3_yaw"   default=" 1.57"/>
+
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find gazebo_models_worlds_collection)/worlds/warehouse.world"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>  
+
+<!-- Tek TurtleBot (tb3_0) -->
+<group ns="tb3_0">
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find turtlebot3_description)/urdf/turtlebot3_$(arg model).urdf.xacro" />
+
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen"/>
+
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"
+        args="-urdf -model tb3_0 -x 8.0 -y 0.0 -z 0.0 -Y 2.40 -param robot_description"/>
+        
+  <!-- Engel Algılama Düğümü -->
+  <node pkg="beginner_tutorials" type="scanmove2goal.py" name="obstacle_avoidance_tb3_0" output="screen">
+    <param name="namespace" value="tb3_0"/>
+  </node>
+</group>
+
+  
+
+</launch>
