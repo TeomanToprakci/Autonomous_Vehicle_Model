@@ -29,7 +29,7 @@ This project demonstrates the design and implementation of a Lidar-based autonom
 ---
 
 ## 📁 Project Structure
-
+```
 ros2_ws/
 ├── src/
 │ └── robot_control/
@@ -48,7 +48,7 @@ ros2_ws/
 │ │ │ └── nav2_custom_view.rviz
 ~/miniwarehouse.yaml (Map File)
 ~/miniwarehouse.pgm
-
+```
 ---
 
 ## Requirements and Launch Order
@@ -67,3 +67,16 @@ This project requires Nav2 packages and YDLiDAR drivers to launch. Here is the l
 <p float="left"> <img src="/rviz_screenshot.png" width="400" </p>
 
 
+
+
+## 🧠 Notes and Limitations
+Localization drift: Due to friction-based wheel slippage, AMCL sometimes fails to match scan data with the map.
+
+Odometry is based on dead reckoning (PWM estimation), not encoders.
+
+Real tests were performed in a 14m² warehouse demo area.
+
+
+
+## 📄 License
+This project is licensed under the MIT License.
