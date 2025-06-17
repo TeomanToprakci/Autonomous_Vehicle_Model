@@ -2,9 +2,6 @@
 
 This project demonstrates the design and implementation of a Lidar-based autonomous robot system for indoor environments such as warehouses or production facilities. The robot can localize itself, detect obstacles, and navigate to user-defined target points without human intervention.
 
-<p align="center">
-  <img src="images/rviz_demo.png" alt="RViz Demo Screenshot" width="600"/>
-</p>
 
 ## 📌 Features
 
@@ -67,6 +64,6 @@ This project requires Nav2 packages and YDLiDAR drivers to launch. Here is the l
 
 5- ros2 launch robot_control rviz_launch.py <----(if observation is needed)
 
-<p float="left"> <img src="images/rviz_screenshot.png" width="400" </p>
+<p float="left"> <img src="/rviz_screenshot.png" width="400" </p>
 
 
