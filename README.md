@@ -2,6 +2,10 @@
 
 This project demonstrates the design and implementation of a Lidar-based autonomous robot system for indoor environments such as warehouses or production facilities. The robot can localize itself, detect obstacles, and navigate to user-defined target points without human intervention.
 
+<p align="center">
+  <img src="/front_view.jpeg" width="400" />
+  <img src="/rear_view.jpeg" width="400" />
+</p>
 
 ## 📌 Features
 
